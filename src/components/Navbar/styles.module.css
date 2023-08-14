@@ -1,0 +1,36 @@
+.Header {
+    width: 100%;
+    background-color: beige;
+}
+
+.Nav {
+    height: 60px;
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.FigureImg {
+    width: 120px;
+    height: 60px;
+    object-fit: cover;
+}
+
+.NavOptions {
+    gap: 10px;
+    display: flex;
+    user-select: none;
+}
+
+.LogoutIcon {
+    display: flex;
+    font-size: 20px;
+    border-radius: 50%;
+    align-items: center;
+}
+
+.LogoutIcon svg:hover {
+    color: gray;
+    cursor: pointer;
+}
