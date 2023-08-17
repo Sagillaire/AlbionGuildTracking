@@ -1,3 +1,4 @@
+'use client'
 import { Tag } from 'antd';
 import dayjs, { Dayjs } from 'dayjs';
 import { CountDownProps } from './types';
@@ -18,11 +19,12 @@ const formatTime = (time: number) => {
     return `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 };
 
-const parseRemainingSave = (remainingSave: string) => {
-    const [hoursStr, minutesStr] = remainingSave.split(':');
+const parseRemainingSave = (remainingSave: { updatedAt: string; timeHour: string }) => {
+    const { updatedAt, timeHour } = remainingSave;
+    const [hoursStr, minutesStr] = timeHour.split(':');
     const hours = parseInt(hoursStr, 10);
     const minutes = parseInt(minutesStr, 10);
-    return dayjs().add(hours, 'hour').add(minutes, 'minute');
+    return dayjs(updatedAt).add(hours, 'hour').add(minutes, 'minute');
 };
 
 export const CountDown: React.FC<CountDownProps> = ({ remainingSave }) => {
@@ -43,13 +45,13 @@ export const CountDown: React.FC<CountDownProps> = ({ remainingSave }) => {
         return () => clearInterval(interval);
     }, [initialRemainingTime]);
 
-    let tagColor = "green";
+    let tagColor = 'green';
 
     if (remainingTime < 3600) {
-        tagColor = "red";
+        tagColor = 'red';
     } else if (remainingTime < 14400) {
-        tagColor = "orange";
+        tagColor = 'orange';
     }
 
-    return <Tag color={tagColor}>{formatTime(remainingTime)}</Tag>
+    return <Tag color={tagColor}>{formatTime(remainingTime)}</Tag>;
 };

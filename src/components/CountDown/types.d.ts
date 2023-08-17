@@ -1,3 +1,8 @@
 export interface CountDownProps {
-    remainingSave: string;
+    remainingSave: IRemainingSave;
+}
+
+interface IRemainingSave {
+    timeHour: string;
+    updatedAt: string;
 }

@@ -1,3 +1,4 @@
+'use client'
 import { FC } from 'react';
 import { ICustomInput } from './types';
 import { BiLock } from 'react-icons/bi';
