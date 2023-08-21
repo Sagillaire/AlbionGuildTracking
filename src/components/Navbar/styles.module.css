@@ -1,6 +1,6 @@
 .Header {
     width: 100%;
-    background-color: beige;
+    background-color: #531405;
 }
 
 .Nav {
@@ -12,15 +12,14 @@
 }
 
 .FigureImg {
-    width: 120px;
     height: 60px;
-    object-fit: cover;
 }
 
 .NavOptions {
     gap: 10px;
     display: flex;
     user-select: none;
+    color: white;
 }
 
 .LogoutIcon {
@@ -31,6 +30,24 @@
 }
 
 .LogoutIcon svg:hover {
-    color: gray;
+    color: #F8DFBC;
     cursor: pointer;
+}
+
+.links {
+    width: 300px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    font-weight: 400;
+    color: white;
+    text-decoration: none;
+    padding: 20px 25px;
+}
+
+.link:hover {
+    background-color: #711000;
+    color: #F8DFBC;
 }
