@@ -3,6 +3,7 @@ import { Control, FieldError, DefaultValues, RegisterOptions } from "react-hook-
 
 export interface ICustomInput {
     onClick?: () =>     void;
+    format?:            string;
     btnLabel?:          string;
     name:               string;
     placeholder?:       string;
@@ -16,4 +17,4 @@ export interface ICustomInput {
     rules?:             RegisterOptions;
 }
 
-type TTypeOptions = 'password'
+type TTypeOptions = 'time' | 'password'

@@ -1,11 +1,12 @@
 'use client'
+import dayjs from 'dayjs';
 import { FC } from 'react';
 import { ICustomInput } from './types';
 import { BiLock } from 'react-icons/bi';
 import { Controller } from 'react-hook-form';
-import { Button, Form, Input, Space } from 'antd';
+import { Button, Form, Input, Space, TimePicker } from 'antd';
 
-export const CustomInput: FC<ICustomInput> = ({ type, name, rules, control, errors, defaultValue, placeholder, prefix, btnLabel, disabled, loading, onClick }) => {
+export const CustomInput: FC<ICustomInput> = ({ type, name, rules, control, errors, defaultValue, placeholder, prefix, btnLabel, disabled, loading, onClick, format }) => {
     return (
         <Form.Item
             help={errors && errors.message}
@@ -41,6 +42,23 @@ export const CustomInput: FC<ICustomInput> = ({ type, name, rules, control, erro
                                 placeholder={placeholder}
                                 disabled={disabled}
                                 prefix={<BiLock />}
+                                size='large'
+                                {...field}
+                            />
+                        )}
+                    />
+                )}
+
+                {type === 'time' && (
+                    <Controller
+                        name={name}
+                        rules={rules}
+                        control={control}
+                        defaultValue={dayjs('00:00', 'HH:mm')}
+                        render={({ field }) => (
+                            <TimePicker
+                                format={format || 'HH:mm'}
+                                disabled={disabled}
                                 size='large'
                                 {...field}
                             />

@@ -21,9 +21,11 @@ const formatTime = (time: number) => {
 
 const parseRemainingSave = (remainingSave: { updatedAt: string; timeHour: string }) => {
     const { updatedAt, timeHour } = remainingSave;
-    const [hoursStr, minutesStr] = timeHour.split(':');
-    const hours = parseInt(hoursStr, 10);
-    const minutes = parseInt(minutesStr, 10);
+    const timeDate = new Date(timeHour);
+
+    const hours = timeDate.getHours();
+    const minutes = timeDate.getMinutes();
+    
     return dayjs(updatedAt).add(hours, 'hour').add(minutes, 'minute');
 };
 
