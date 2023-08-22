@@ -1,0 +1,11 @@
+.labelName {
+    gap: 1px;
+    display: flex;
+    flex-direction: column;
+}
+
+.spanName {
+    color: #cfcfcf;
+    margin: 0px 2px;
+    font-size: 14px;
+}

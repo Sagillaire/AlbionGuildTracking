@@ -3,6 +3,7 @@ import { Control, FieldError, DefaultValues, RegisterOptions } from "react-hook-
 
 export interface ICustomInput {
     onClick?: () =>     void;
+    label:              string;
     format?:            string;
     btnLabel?:          string;
     name:               string;
