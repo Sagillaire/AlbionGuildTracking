@@ -1,5 +1,6 @@
 import './globals.css'
 import type { Metadata } from 'next';
+import { Navbar } from '@/components';
 import { SafeHydrate } from '@/Hooks';
 import { Inter } from 'next/font/google';
 import { ClientProvider } from '@/core/ApiService/QueryClientConfig';
@@ -17,6 +18,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <SafeHydrate>
           <ClientProvider>
+            <Navbar />
             {children}
           </ClientProvider>
         </SafeHydrate>
