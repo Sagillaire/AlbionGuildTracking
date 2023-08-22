@@ -9,7 +9,7 @@ export const routes: IRoutes[] = [
     {
         id: 2,
         title: "MAPS",
-        url: "/aps",
+        url: "/maps",
     },
     {
         id: 3,
