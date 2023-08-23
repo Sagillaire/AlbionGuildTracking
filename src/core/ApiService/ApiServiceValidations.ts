@@ -13,7 +13,7 @@ interface IResponse {
 }
 
 export const handleResponse = (response: AxiosResponse) => {
-    return Promise.reject(response)
+    return Promise.resolve(response)
 }
 
 export const handleError = (error: ErrorResponse | AxiosError) => {
