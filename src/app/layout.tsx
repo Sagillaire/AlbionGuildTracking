@@ -1,8 +1,8 @@
-import './globals.css'
+import './globals.css';
 import type { Metadata } from 'next';
 import { Navbar } from '@/components';
-import { SafeHydrate } from '@/Hooks';
 import { Inter } from 'next/font/google';
+import { SafeHydrate } from '@/core/Hooks';
 import { ClientProvider } from '@/core/ApiService/QueryClientConfig';
 
 const inter = Inter({ subsets: ['latin'] })
