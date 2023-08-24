@@ -1,12 +1,16 @@
 import { create } from "zustand";
-import { IGetSessionResults } from "@/core/Services/auth/VerifySession";
+import { IUserStore, IGetSessionAction } from "./userStore.types";
 
-export interface IUserStore { user: string, userToken: string, getSession: (data: IGetSessionResults) => void }
 export const userStore = create<IUserStore>((set) => ({
     user: '',
-    userToken: '',
-    getSession: (data: IGetSessionResults) => set(() => ({
-        user: data?.username,
-        userToken: data?.token
+    isAuth: false,
+    loading: false,
+    setUserLoad: (isLoad: boolean) => set((payload) => ({
+        ...payload,
+        loading: isLoad
+    })),
+    getSession: (data: IGetSessionAction) => set(() => ({
+        user: data?.user,
+        isAuth: data?.isAuth
     }))
 }))

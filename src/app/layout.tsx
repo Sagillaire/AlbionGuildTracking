@@ -1,8 +1,10 @@
 import './globals.css';
+import Loading from './loading';
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 import { SafeHydrate } from '@/core';
-import { Navbar } from '@/components';
 import { Inter } from 'next/font/google';
+import { Navbar, SessionProvider } from '@/components';
 import { ClientProvider } from '@/core/ApiService/QueryClientConfig';
 
 const inter = Inter({ subsets: ['latin'] })
@@ -18,8 +20,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={inter.className}>
         <SafeHydrate>
           <ClientProvider>
-            <Navbar />
-            {children}
+            <SessionProvider>
+              <Suspense fallback={<Loading />}>
+                <Navbar />
+                {children}
+              </Suspense>
+            </SessionProvider>
           </ClientProvider>
         </SafeHydrate>
       </body>
