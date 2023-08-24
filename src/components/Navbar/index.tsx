@@ -1,11 +1,15 @@
+'use client'
 import { FC } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { routes } from "./routes";
+import { userStore } from "@/core";
 import styles from './styles.module.css';
+import { getUserName } from "@/core/utils";
 import { AiOutlineLogout } from 'react-icons/ai';
 
 export const Navbar: FC = () => {
+    const { user } = userStore()
     return (
         <header className={styles.Header}>
             <nav className={styles.Nav}>
@@ -20,7 +24,7 @@ export const Navbar: FC = () => {
                     ))}
                 </div>
                 <div className={styles.NavOptions}>
-                    <span>LaxuSlayer</span>
+                    <span>Hello, {getUserName(user)}</span>
                     <span className={styles.LogoutIcon}>
                         <AiOutlineLogout />
                     </span>

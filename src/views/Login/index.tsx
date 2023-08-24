@@ -1,26 +1,34 @@
 'use client'
 import { FC } from 'react'
-import { useForm } from "react-hook-form"
-import { useMutation } from "react-query"
+import { useLogin } from './Hooks'
 import { CustomInput } from "@/components"
-import { useGetSession, LoginService } from "@/core"
+import { FieldError } from 'react-hook-form'
 
 export const Login: FC = () => {
-    const { control, handleSubmit } = useForm()
-    const { getSessionMutate } = useGetSession()
-    const { mutateAsync: loginUser, isLoading } = useMutation((data) => LoginService.post('', data), {
-        onSuccess: (data) => {
-            localStorage.setItem('guildUserToken', data?.results.token)
-            getSessionMutate(data?.results?.token)
-        }
-    })
+    // Hooks
+    const { control, handleSubmit, isLoading, loginUser, errors } = useLogin()
 
     return (
         <div onSubmit={handleSubmit(loginUser as never)}>
             <form style={{ width: '300px', margin: '50px auto' }}>
-                <CustomInput label="Usuario" name="username" control={control} />
-                <CustomInput label="Contraseña" name="password" type="password" control={control} />
-                <button type="submit">{isLoading ? 'Loading...' : 'Iniciar Sesión'}</button>
+                <CustomInput
+                    label="Usuario"
+                    name="username"
+                    control={control}
+                    rules={{ required: 'Campo requerido' }}
+                    errors={errors?.username as FieldError}
+                />
+                <CustomInput
+                    name="password"
+                    type="password"
+                    control={control}
+                    label="Contraseña"
+                    rules={{ required: 'Campo requerido' }}
+                    errors={errors?.password as FieldError}
+                />
+                <button type="submit">
+                    {isLoading ? 'Loading...' : 'Iniciar Sesión'}
+                </button>
             </form>
         </div>
     )
