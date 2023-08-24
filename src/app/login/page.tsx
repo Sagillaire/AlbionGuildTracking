@@ -1,28 +1,9 @@
-'use client'
-import { useForm } from "react-hook-form"
-import { useMutation } from "react-query"
-import { CustomInput } from "@/components"
-import { useGetSession, LoginService } from "@/core"
+import { Login } from "@/views"
 
-const Login = () => {
-  const { control, handleSubmit } = useForm()
-  const { getSessionMutate } = useGetSession()
-  const { mutateAsync: loginUser, isLoading } = useMutation((data) => LoginService.post('', data), {
-    onSuccess: (data) => {
-      localStorage.setItem('guildUserToken', data?.results.token)
-      getSessionMutate(data?.results?.token)
-    }
-  })
-
+const LoginPage = () => {
   return (
-    <div onSubmit={handleSubmit(loginUser as never)}>
-      <form style={{ width: '300px', margin: '50px auto' }}>
-        <CustomInput label="Usuario" name="username" control={control} />
-        <CustomInput label="Contraseña" name="password" type="password" control={control} />
-        <button type="submit">{isLoading ? 'Loading...' : 'Iniciar Sesión'}</button>
-      </form>
-    </div>
+    <Login />
   )
 }
 
-export default Login
+export default LoginPage
