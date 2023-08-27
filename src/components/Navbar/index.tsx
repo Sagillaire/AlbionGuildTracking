@@ -6,10 +6,13 @@ import { routes } from "./routes";
 import { userStore } from "@/core";
 import styles from './styles.module.css';
 import { getUserName } from "@/core/utils";
-import { AiOutlineLogout } from 'react-icons/ai';
+import { useRouter } from "next/navigation";
+import { AiOutlineLogout, AiOutlineUser } from 'react-icons/ai';
 
 export const Navbar: FC = () => {
-    const { user } = userStore()
+    const { user, logout } = userStore()
+    const router = useRouter()
+
     return (
         <header className={styles.Header}>
             <nav className={styles.Nav}>
@@ -25,9 +28,16 @@ export const Navbar: FC = () => {
                 </div>
                 <div className={styles.NavOptions}>
                     <span>Hello, {getUserName(user)}</span>
-                    <span className={styles.LogoutIcon}>
-                        <AiOutlineLogout />
-                    </span>
+                    {!user && (
+                        <Link href='/login' className={styles.LogoutIcon} onClick={() => router.push('/login')}>
+                            <AiOutlineUser />
+                        </Link>
+                    )}
+                    {user && (
+                        <Link href='/' className={styles.LogoutIcon} onClick={logout}>
+                            <AiOutlineLogout />
+                        </Link>
+                    )}
                 </div>
             </nav>
         </header>

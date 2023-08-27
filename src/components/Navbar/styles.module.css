@@ -18,20 +18,25 @@
 .NavOptions {
     gap: 10px;
     display: flex;
-    user-select: none;
     color: white;
-}
-
-.LogoutIcon {
-    display: flex;
-    font-size: 20px;
-    border-radius: 50%;
+    user-select: none;
     align-items: center;
 }
 
-.LogoutIcon svg:hover {
-    color: #F8DFBC;
+.LogoutIcon {
+    padding: 5px;
+    display: flex;
+    color: white;
+    font-size: 20px;
+    border: 1px solid;
+    border-radius: 5px;
+    align-items: center;
+}
+
+.LogoutIcon:hover, .LogoutIcon svg:hover {
     cursor: pointer;
+    color: #F8DFBC;
+    border-color: #F8DFBC;
 }
 
 .links {
@@ -41,10 +46,10 @@
 }
 
 .link {
-    font-weight: 400;
     color: white;
-    text-decoration: none;
+    font-weight: 400;
     padding: 20px 25px;
+    text-decoration: none;
 }
 
 .link:hover {

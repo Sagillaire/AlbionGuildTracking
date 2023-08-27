@@ -3,17 +3,17 @@ import { IRoutes } from "./types";
 export const routes: IRoutes[] = [
     {
         id: 1,
-        title: "BUILDS",
-        url: "/builds",
+        url: "/",
+        title: "ROUTES",
     },
     {
         id: 2,
-        title: "MAPS",
-        url: "/maps",
+        url: "/builds",
+        title: "BUILDS",
     },
     {
         id: 3,
-        title: "ROUTES",
-        url: "/routes",
+        url: "/maps",
+        title: "MAPS",
     },
 ]

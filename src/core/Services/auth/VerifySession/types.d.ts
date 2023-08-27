@@ -4,10 +4,11 @@ export interface IGetSession {
 }
 
 export interface IGetSessionResults {
-    username?:      string;
-    status?:        string;
-    verified?:      boolean;
-    isAuth?:        boolean;
     id?:            string;
+    rol?:           string;
     token?:         string;
+    status?:        string;
+    username?:      string;
+    isAuth?:        boolean;
+    verified?:      boolean;
 }

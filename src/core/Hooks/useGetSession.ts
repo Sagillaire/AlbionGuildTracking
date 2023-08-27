@@ -8,7 +8,11 @@ export const useGetSession = () => {
     const { getSession, setUserLoad } = userStore()
     const { mutateAsync, isLoading } = useMutation((token) => GetSessionService.post('', { token }), {
         onSuccess: (data) => {
-            getSession({ user: data?.results?.username, isAuth: data?.results?.isAuth })
+            const { username: user, isAuth, verified, rol } = data?.results
+            getSession({ user, isAuth, loading: isLoading, verified, rol })
+        },
+        onError: () => {
+            localStorage.removeItem('guildUserToken')
         }
     });
 

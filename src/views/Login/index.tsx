@@ -7,6 +7,9 @@ import { FieldError } from 'react-hook-form'
 export const Login: FC = () => {
     // Hooks
     const { control, handleSubmit, isLoading, loginUser, errors } = useLogin()
+    const token = localStorage.getItem('guildUserToken')
+
+    if (token) return
 
     return (
         <div onSubmit={handleSubmit(loginUser as never)}>
