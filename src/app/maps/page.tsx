@@ -1,7 +1,7 @@
+import { CommingSoon } from "@/components"
+
 const Maps = () => {
-  return (
-    <div>Maps</div>
-  )
+  return <CommingSoon />
 }
 
 export default Maps

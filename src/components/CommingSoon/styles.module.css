@@ -1,0 +1,19 @@
+.Container {
+    gap: 20px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: calc(100vh - 60px);
+}
+
+.Container iframe {
+    user-select: none;
+}
+
+.Container span {
+    color: brown;
+    font-size: 200%;
+    font-weight: bold;
+}

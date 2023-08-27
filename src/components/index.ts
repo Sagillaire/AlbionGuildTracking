@@ -5,5 +5,6 @@ export { CardPost } from './CardPost';
 export { CountDown } from './CountDown';
 export { CustomSelect } from './Select';
 export { ModalRoute } from './ModalRoute';
+export { CommingSoon } from './CommingSoon';
 export { CustomInput } from './CustomInput';
 export { SessionProvider } from './SessionProvider';

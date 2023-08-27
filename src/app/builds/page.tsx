@@ -1,7 +1,7 @@
+import { CommingSoon } from "@/components"
+
 const Builds = () => {
-  return (
-    <div>Builds</div>
-  )
+  return <CommingSoon />
 }
 
 export default Builds

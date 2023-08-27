@@ -15,3 +15,10 @@
     text-align: center;   
     grid-template-columns: repeat(3,1fr);
 }
+
+.routeLine .titles {
+    color: brown;
+    font-weight: bold;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #D2D2D2;
+}

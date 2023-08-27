@@ -16,6 +16,8 @@ export const ModalRoute: FC<IModalRoute> = ({ open, onCancel }) => {
         enabled: Boolean(id)
     })
 
+    const titles: string[] = ['MAP NAME', 'MAP ZONE', 'TIME LEFT']
+
     return (
         <Modal
             width='50%'
@@ -27,6 +29,13 @@ export const ModalRoute: FC<IModalRoute> = ({ open, onCancel }) => {
         >
             <div className={styles.container}>
                 <div className={styles.routeContainer}>
+                    <div className={styles.routeLine}>
+                        {titles.map((title) => (
+                            <span key={title} className={styles.titles}>
+                                {title}
+                            </span>
+                        ))}
+                    </div>
                     {data?.route_info?.map((mapa) => (
                         <div className={styles.routeLine} key={mapa?.map_name}>
                             <div className={styles.name}>{mapa?.map_name}</div>
