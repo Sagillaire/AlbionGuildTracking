@@ -1,0 +1,17 @@
+.container {
+    width: 100%;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid lightgray;
+}
+
+.modal {
+    text-align: center;
+}
+
+.routeLine {
+    margin: 10px;
+    display: grid;
+    text-align: center;   
+    grid-template-columns: repeat(3,1fr);
+}

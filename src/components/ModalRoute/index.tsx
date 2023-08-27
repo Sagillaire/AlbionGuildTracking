@@ -1,6 +1,7 @@
 import React from 'react'
 import { FC } from 'react'
-import { ICardRout } from './types'
+import { Modal } from 'antd'
+import { IModalRoute } from './types'
 import styles from './styles.module.css'
 import { CountDown } from '../CountDown'
 
@@ -10,8 +11,8 @@ const dataFake = {
         route_info: [
             {
                 time: "2023-08-26T09:04:00.000Z",
-                map_name: "Caerleon",
-                map_zone: "Red",
+                map_name: "Settun-et-Odetis",
+                map_zone: "Road",
                 state: "1",
                 _id: "64e994f3b46241051dcb4823"
             },
@@ -45,23 +46,20 @@ const dataFake = {
 
 const response = dataFake.response
 
-export const CardRout: FC<ICardRout> = () => {
+export const ModalRoute: FC<IModalRoute> = ({ open, onCancel }) => {
     return (
-        <div className={styles.container}>
-            <div className={styles.conTitle}>
-                <h1>
-                    {response?.route_info?.[0]?.map_name}
-                </h1>
+        <Modal className={styles.modal} title={response?.route_info?.[0]?.map_name} footer={false} width='50%' open={open} onCancel={onCancel}>
+            <div className={styles.container}>
+                <div className={styles.routeContainer}>
+                    {response?.route_info?.map((mapa) => (
+                        <div className={styles.routeLine} key={mapa.map_name}>
+                            <div className={styles.name}>{mapa.map_name}</div>
+                            <div className={styles.zone}>{mapa.map_zone}</div>
+                            <div className={styles.hour}><CountDown remainingSave={{ timeHour: mapa.time, updatedAt: response.updatedAt }} /></div>
+                        </div>
+                    ))}
+                </div>
             </div>
-            <div className={styles.routeContainer}>
-                {response?.route_info?.map((mapa) => (
-                    <div className={styles.routeLine} key={mapa.map_name}>
-                        <div className={styles.name}>{mapa.map_name}</div>
-                        <div className={styles.zone}>{mapa.map_zone}</div>
-                        <div className={styles.hour}><CountDown remainingSave={{ timeHour:mapa.time, updatedAt: response.updatedAt }} /></div>
-                    </div>
-                ))}
-            </div>
-        </div>
+        </Modal>
     )
 }
