@@ -18,7 +18,7 @@ export class ApiService<T> {
 
     async getById(endpoint: string, id: number | string): Promise<T> {
         try {
-            const response = await this.client.get<T>(`${this.service}/${endpoint}/${id}`)
+            const response = await this.client.get<T>(`${this.service}/${id}`)
             return response.data
         } catch (error) {
             return Promise.reject(error);
