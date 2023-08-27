@@ -16,7 +16,7 @@ export class ApiService<T> {
         this.getByParams = this.getByParams.bind(this);
     }
 
-    async getById(endpoint: string, id: number | string): Promise<T> {
+    async getById(id: number | string): Promise<T> {
         try {
             const response = await this.client.get<T>(`${this.service}/${id}`)
             return response.data
