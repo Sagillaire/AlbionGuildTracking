@@ -56,10 +56,10 @@ export const CustomInput: FC<ICustomInput> = ({ label, type, name, rules, contro
                             name={name}
                             rules={rules}
                             control={control}
-                            defaultValue={dayjs('00:00', 'HH:mm')}
                             render={({ field }) => (
                                 <TimePicker
                                     format={format || 'HH:mm'}
+                                    style={{ width: '100%' }}
                                     disabled={disabled}
                                     size='large'
                                     {...field}

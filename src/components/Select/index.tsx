@@ -5,7 +5,7 @@ import ReactSelect from 'react-select';
 import style from './styles.module.css';
 import { Controller } from 'react-hook-form';
 
-export const CustomSelect: FC<ISelect> = ({ label, name, rules, control, defaultValue, isMulti, options, styles }) => {
+export const CustomSelect: FC<ISelect> = ({ errors, label, name, rules, control, defaultValue, isMulti, options, styles }) => {
     return (
         <label className={style.labelName}>
             <span className={style.spanName}>
@@ -18,14 +18,17 @@ export const CustomSelect: FC<ISelect> = ({ label, name, rules, control, default
                 defaultValue={defaultValue}
                 render={({ field }) => (
                     <ReactSelect
-                        className={style.Select}
+                        {...field}
+                        styles={styles}
                         isMulti={isMulti}
                         options={options}
-                        styles={styles}
-                        {...field}
+                        className={style.Select}
+                        onChange={(change) => { field.onChange(change?.value) }}
+                        value={options?.find((x) => x?.value === field?.value)}
                     />
                 )}
             />
+            <span style={{ color: 'red', height: '22px' }}>{errors && errors.message}</span>
         </label>
     )
 }

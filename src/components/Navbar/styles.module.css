@@ -56,3 +56,7 @@
     background-color: #711000;
     color: #F8DFBC;
 }
+
+.userAccess {
+    cursor: pointer;
+}

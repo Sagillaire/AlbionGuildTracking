@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation";
 import { AiOutlineLogout, AiOutlineUser } from 'react-icons/ai';
 
 export const Navbar: FC = () => {
-    const { user, logout } = userStore()
+    const { user, logout, rol } = userStore()
     const router = useRouter()
 
     return (
@@ -27,7 +27,9 @@ export const Navbar: FC = () => {
                     ))}
                 </div>
                 <div className={styles.NavOptions}>
-                    <span>Hello, {getUserName(user)}</span>
+                    <span className={rol === 'OFFICIAL' ? styles.userAccess : ''} onClick={() => rol === 'OFFICIAL' ? router?.push('admin') : {}} >
+                        Hello, {getUserName(user)}
+                    </span>
                     {!user && (
                         <Link href='/login' className={styles.LogoutIcon} onClick={() => router.push('/login')}>
                             <AiOutlineUser />

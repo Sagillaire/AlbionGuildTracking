@@ -8,9 +8,9 @@ export interface IMapRouteByID {
     _id:        string;
     state:      number;
     created_by: string;
-    route_info: RouteInfo[];
     createdAt:  string;
     updatedAt:  string;
+    route_info: RouteInfo[];
 }
 
 export interface Response {

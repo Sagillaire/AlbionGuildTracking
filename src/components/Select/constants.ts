@@ -6,7 +6,7 @@ export const colorOptions: OptionType[] = [
     { value: 'blue', label: 'BLUE ZONE', color: '#0074D9' },
     { value: 'black', label: 'BLACK ZONE', color: 'black' },
     { value: 'yellow', label: 'YELLOW ZONE', color: 'yellow' },
-    { value: 'road', label: 'ROADS AVALON', color: 'orange' },
+    { value: 'roads', label: 'ROADS AVALON', color: 'orange' },
 ];
 
 export const colourStyles: StylesConfig<OptionType> = {
