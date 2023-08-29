@@ -10,18 +10,18 @@ export interface IMapRouteByID {
     created_by: string;
     createdAt:  string;
     updatedAt:  string;
-    route_info: RouteInfo[];
+    route_info: IRouteInfo[];
 }
 
 export interface IMapRouteResponse {
     _id:        string;
     created_by: string;
-    route_info: RouteInfo[];
+    route_info: IRouteInfo[];
     createdAt:  string;
     updatedAt:  string;
 }
 
-export interface RouteInfo {
+export interface IRouteInfo {
     time:     Date;
     map_name: string;
     map_zone: string;

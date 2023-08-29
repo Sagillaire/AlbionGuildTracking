@@ -1,5 +1,6 @@
+import { IMapRouteResponse } from "@/core";
 import { ReactNode } from "react";
-import { Control, FieldError, DefaultValues, RegisterOptions } from "react-hook-form";
+import type { Control, FieldError, DefaultValues, RegisterOptions } from "react-hook-form";
 
 export interface ICustomInput {
     onClick?: () =>     void;
@@ -8,14 +9,14 @@ export interface ICustomInput {
     btnLabel?:          string;
     name:               string;
     placeholder?:       string;
-    control:            Control;
     loading?:           boolean;
     disabled?:          boolean;
     prefix?:            ReactNode;
-    errors?:            FieldError;
     type?:              TTypeOptions;
-    defaultValue?:      DefaultValues;
-    rules?:             RegisterOptions;
+    control:            Control<IMapRouteResponse>;
+    errors?:            FieldErrors<IMapRouteResponse>;
+    defaultValue?:      DefaultValues<IMapRouteResponse>;
+    rules?:             RegisterOptions<IMapRouteResponse>;
 }
 
 type TTypeOptions = 'time' | 'password'

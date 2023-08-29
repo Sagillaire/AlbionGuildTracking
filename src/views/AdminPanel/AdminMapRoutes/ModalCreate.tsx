@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { Modal } from 'antd';
 import { useModal } from './Hooks';
+import { IRouteInfo } from '@/core';
 import { IModalCreate } from './types';
 import { GoTrash } from 'react-icons/go';
 import styles from './styles.module.css';
@@ -21,11 +22,11 @@ export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
             onOk={handleSubmit(createMapRoute as never)}
             title={<TitleNode append={append} handleCancel={handleCancel} />}
         >
-            {routes?.map((route, index) => {
+            {routes?.map((route: IRouteInfo, index: number) => {
                 if (route.state !== 0) {
                     const zoneWatch = watch(`route_info.${index}.map_zone`)
                     return (
-                        <form className={styles.formStyles} key={route?.id}>
+                        <form className={styles.formStyles} key={route?._id}>
                             <CustomSelect
                                 label='Zone'
                                 control={control}
