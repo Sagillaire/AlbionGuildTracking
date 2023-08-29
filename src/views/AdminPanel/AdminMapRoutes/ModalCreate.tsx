@@ -11,6 +11,7 @@ import { Button, Modal, message } from 'antd';
 import { CustomInput, CustomSelect } from "@/components";
 import { useFieldArray, useForm } from "react-hook-form";
 import { colorOptions, colourStyles } from '@/components/Select/constants';
+import { TitleNode } from './Components/TitleNode';
 
 export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
     const { control, handleSubmit, formState: { errors }, watch, reset } = useForm()
@@ -41,18 +42,15 @@ export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
         reset()
     }
 
-    const TitleNode = () => {
-        return (
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-                <span>Crear nueva ruta</span>
-                <Button icon={<FaRoute />} onClick={() => append({ state: 1 })}>Agregar</Button>
-                <Button icon={<FaRoute />} onClick={handleCancel}>LIMPIAR</Button>
-            </div>
-        )
-    }
-
     return (
-        <Modal width='80%' onOk={handleSubmit(createMapRoute as never)} title={<TitleNode />} okText='Guardar' open={open} onCancel={handleCancel} closable={false}>
+        <Modal
+            width='80%'
+            closable={false}
+            onCancel={handleCancel}
+            okText='Guardar' open={open}
+            onOk={handleSubmit(createMapRoute as never)}
+            title={<TitleNode append={append} handleCancel={handleCancel} />}
+        >
             {routes?.map((route, index) => {
                 if (route?.state !== 0) {
                     const zoneWatch = watch(`route_info.${index}.map_zone`)
@@ -65,7 +63,7 @@ export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
                                 options={colorOptions}
                                 name={`route_info.${index}.map_zone`}
                                 errors={errors?.route_info?.[index]?.map_zone}
-                            // rules={{ required: 'Campo ZONE es requerido' }}
+                                rules={{ required: 'Campo ZONE es requerido' }}
                             />
                             {zoneWatch && (
                                 <CustomSelect
@@ -74,7 +72,7 @@ export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
                                     name={`route_info.${index}.map_name`}
                                     options={Mapvalues[zoneWatch as never]}
                                     errors={errors?.route_info?.[index]?.map_name}
-                                // rules={{ required: 'Campo NAME es requerido' }}
+                                    rules={{ required: 'Campo NAME es requerido' }}
                                 />
                             )}
                             <CustomInput
@@ -83,7 +81,7 @@ export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
                                 control={control}
                                 name={`route_info.${index}.time`}
                                 errors={errors?.route_info?.[index]?.time}
-                            // rules={{ required: 'Campo TIME es requerido' }}
+                                rules={{ required: 'Campo TIME es requerido' }}
                             />
                             <span style={{ fontSize: '20px', display: 'flex', alignItems: 'center', width: '20px', height: '20px', color: 'red', cursor: 'pointer' }}
                                 onClick={() => remove(index)}
