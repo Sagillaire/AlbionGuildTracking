@@ -1,6 +1,6 @@
 // ALL ROUTES INTERFACE
 export interface IMapRoute {
-    response: Response[];
+    response: IMapRouteResponse[];
 }
 
 // ROUTE BY ID
@@ -13,7 +13,7 @@ export interface IMapRouteByID {
     route_info: RouteInfo[];
 }
 
-export interface Response {
+export interface IMapRouteResponse {
     _id:        string;
     created_by: string;
     route_info: RouteInfo[];
@@ -25,6 +25,6 @@ export interface RouteInfo {
     time:     Date;
     map_name: string;
     map_zone: string;
-    state:    string;
+    state:    number;
     _id:      string;
 }

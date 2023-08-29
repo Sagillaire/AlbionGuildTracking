@@ -22,7 +22,7 @@ export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
             title={<TitleNode append={append} handleCancel={handleCancel} />}
         >
             {routes?.map((route, index) => {
-                if (route?.state !== 0) {
+                if (route.state !== 0) {
                     const zoneWatch = watch(`route_info.${index}.map_zone`)
                     return (
                         <form className={styles.formStyles} key={route?.id}>

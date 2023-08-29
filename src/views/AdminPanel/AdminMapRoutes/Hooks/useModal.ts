@@ -1,11 +1,11 @@
 import { message } from 'antd';
 import { AxiosError } from "axios";
 import { useMutation } from "react-query";
-import { MapRoute, userStore } from "@/core";
+import { IMapRouteByID, IMapRouteResponse, MapRoute, userStore } from "@/core";
 import { useFieldArray, useForm } from "react-hook-form";
 
 export const useModal = (onCancel: () => void) => {
-    const { control, handleSubmit, formState: { errors }, watch, reset } = useForm()
+    const { control, handleSubmit, formState: { errors }, watch, reset } = useForm<IMapRouteResponse>()
     const { user } = userStore()
 
     const { mutateAsync } = useMutation((data) => MapRoute.post('', data), {
@@ -23,7 +23,7 @@ export const useModal = (onCancel: () => void) => {
         return mutateAsync(data)
     }
 
-    const { fields: routes, append, remove } = useFieldArray({
+    const { fields: routes, append, remove } = useFieldArray<IMapRouteResponse>({
         control: control,
         name: 'route_info'
     })
