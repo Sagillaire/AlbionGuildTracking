@@ -13,10 +13,10 @@ export interface ICustomInput {
     disabled?:          boolean;
     prefix?:            ReactNode;
     type?:              TTypeOptions;
-    control:            Control<IMapRouteResponse>;
-    errors?:            FieldErrors<IMapRouteResponse>;
-    defaultValue?:      DefaultValues<IMapRouteResponse>;
-    rules?:             RegisterOptions<IMapRouteResponse>;
+    control:            Control<T>;
+    errors?:            FieldErrors<T>;
+    defaultValue?:      DefaultValues<T>;
+    rules?:             RegisterOptions<T>;
 }
 
 type TTypeOptions = 'time' | 'password'
