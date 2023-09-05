@@ -1,11 +1,13 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { message } from 'antd';
+import { useEffect } from "react";
 import { AxiosError } from "axios";
 import { useMutation } from "react-query";
 import { useFieldArray, useForm } from "react-hook-form";
 import { IMapRouteResponse, MapRoute, userStore } from "@/core";
 
 export const useModal = (onCancel: () => void) => {
-    const { control, handleSubmit, formState: { errors }, watch, reset } = useForm<IMapRouteResponse>()
+    const { control, handleSubmit, formState: { errors }, watch, reset, setValue } = useForm<IMapRouteResponse>()
     const { user } = userStore()
 
     const { mutateAsync } = useMutation((data) => MapRoute.post('', data), {
@@ -32,5 +34,10 @@ export const useModal = (onCancel: () => void) => {
         onCancel()
         reset()
     }
+
+    useEffect(() => {
+        setValue('route_info', [])
+    }, [onCancel])
+
     return { handleCancel, handleSubmit, createMapRoute, append, routes, control, watch, remove, errors }
 }
