@@ -4,16 +4,17 @@ import { Button, Table } from 'antd';
 import { FaPlus } from 'react-icons/fa';
 import { ModalCreate } from './ModalCreate';
 import { useAdminRoutes, useRouteTable } from './Hooks';
+import styles from './styles.module.css'
 
 export const AdminMapRoutes: FC = () => {
     const { modalRoute, handleModalRoute, routesData } = useAdminRoutes()
     const { columns } = useRouteTable()
 
     return (
-        <div style={{ padding: '20px' }}>
-            <div style={{ padding: '10px', backgroundColor: 'white', boxShadow: '0px 0px 10px #d2d2d2', borderRadius: '5px', display: 'flex', flexDirection: 'column', gap: '10px' }}>
+        <div className={styles.container}>
+            <div className={styles.containerAdminRoutes}>
                 <Button
-                    style={{ display: 'flex', alignSelf: 'flex-end', alignItems: 'center' }}
+                    className={styles.antdRouteButton}
                     onClick={handleModalRoute}
                     icon={<FaPlus />}
                 >
