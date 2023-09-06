@@ -1,1 +1,1 @@
-export { AdminMapRoutes } from './AdminMapRoutes'
+export { AdminMapRoutes } from './AdminMapRoutes';

@@ -1,7 +1,7 @@
-import { Button } from "antd"
-import { FC } from "react"
-import { FaRoute } from "react-icons/fa"
-import { ITitleNode } from "./types"
+import { FC } from "react";
+import { Button } from "antd";
+import { ITitleNode } from "./types";
+import { FaRoute } from "react-icons/fa";
 
 export const TitleNode: FC<ITitleNode> = ({ append, handleCancel }) => {
     return (

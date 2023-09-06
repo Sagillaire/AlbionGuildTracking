@@ -2,9 +2,9 @@
 import { FC } from 'react';
 import { Button, Table } from 'antd';
 import { FaPlus } from 'react-icons/fa';
+import styles from './styles.module.css';
 import { ModalCreate } from './ModalCreate';
 import { useAdminRoutes, useRouteTable } from './Hooks';
-import styles from './styles.module.css'
 
 export const AdminMapRoutes: FC = () => {
     const { modalRoute, handleModalRoute, routesData } = useAdminRoutes()

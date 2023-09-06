@@ -1,8 +1,8 @@
 'use client'
-import { FC } from 'react'
-import { useLogin } from './Hooks'
-import { CustomInput } from "@/components"
-import { FieldError } from 'react-hook-form'
+import { FC } from 'react';
+import { useLogin } from './Hooks';
+import { CustomInput } from "@/components";
+import { FieldError } from 'react-hook-form';
 
 export const Login: FC = () => {
     // Hooks
