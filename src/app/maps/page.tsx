@@ -1,6 +1,7 @@
+import { FC } from "react"
 import { CommingSoon } from "@/components"
 
-const Maps = () => {
+const Maps: FC = () => {
   return <CommingSoon />
 }
 

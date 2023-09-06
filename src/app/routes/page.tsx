@@ -1,4 +1,6 @@
-const Routes = () => {
+import { FC } from "react"
+
+const Routes: FC = () => {
     return (
         <div>Routes</div>
     )

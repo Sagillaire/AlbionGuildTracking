@@ -1,6 +1,7 @@
+import { FC } from "react"
 import { CommingSoon } from "@/components"
 
-const Builds = () => {
+const Builds: FC = () => {
   return <CommingSoon />
 }
 
