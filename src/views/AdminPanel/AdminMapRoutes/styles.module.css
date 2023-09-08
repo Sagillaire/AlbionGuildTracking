@@ -6,17 +6,17 @@
 }
 
 .container {
-    padding: 20px;
+    margin: 20px;
 }
 
 .containerAdminRoutes {
-    gap: '10px';
-    padding: '10px';
-    display: 'flex';
-    border-radius: '5px';
-    flex-direction: 'column';
-    background-color: 'white';
-    box-shadow: '0px 0px 10px #d2d2d2';
+    gap: 10px;
+    padding: 10px;
+    display: flex;
+    border-radius: 5px;
+    flex-direction: column;
+    background-color: white;
+    box-shadow: 1px 1px 5px #C4C4C4;
 }
 
 .antdRouteButton {
