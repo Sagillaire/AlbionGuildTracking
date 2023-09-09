@@ -1,17 +1,20 @@
 import { FC } from 'react';
 import { Modal } from 'antd';
 import { useModal } from './Hooks';
-import { IRouteInfo } from '@/core';
 import { IModalCreate } from './types';
 import { GoTrash } from 'react-icons/go';
 import styles from './styles.module.css';
 import { Mapvalues } from '@/core/utils';
+import { useFormContext } from 'react-hook-form';
 import { TitleNode } from './Components/TitleNode';
+import { IMapRouteResponse, IRouteInfo } from '@/core';
 import { CustomInput, CustomSelect } from "@/components";
 import { colorOptions, colourStyles } from '@/components/Select/constants';
 
 export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
-    const { handleCancel, handleSubmit, createMapRoute, append, routes, control, watch, remove, errors } = useModal(onCancel)
+    // Hooks & States
+    const { control, handleSubmit, formState: { errors }, watch } = useFormContext<IMapRouteResponse>()
+    const { handleCancel, createMapRoute, routes, append, remove } = useModal(onCancel)
 
     return (
         <Modal
@@ -19,8 +22,8 @@ export const ModalCreate: FC<IModalCreate> = ({ open, onCancel }) => {
             closable={false}
             onCancel={handleCancel}
             okText='Guardar' open={open}
+            title={<TitleNode append={append}/>}
             onOk={handleSubmit(createMapRoute as never)}
-            title={<TitleNode append={append} handleCancel={handleCancel} />}
         >
             {routes?.map((route: IRouteInfo, index: number) => {
                 if (route.state !== 0) {
