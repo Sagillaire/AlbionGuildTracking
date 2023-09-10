@@ -1,6 +1,5 @@
 import { FC } from 'react';
 import { Tabs } from 'antd';
-import styles from './styles.module.css';
 import { Container } from '@/components';
 import { AdminMapRoutes } from './AdminMapRoutes';
 
@@ -15,7 +14,6 @@ export const AdminPanel: FC = () => {
         <Container>
             <Tabs
                 type='card'
-                className={styles.tabContainer}
                 items={TABS_CONTENT.map((content, i) => {
                     return {
                         key: content.label,

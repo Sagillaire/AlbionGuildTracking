@@ -14,20 +14,18 @@ export const AdminMapRoutes: FC = () => {
 
     return (
         <FormProvider {...methods}>
-            <div className={styles.container}>
-                <div className={styles.containerAdminRoutes}>
-                    <Button
-                        className={styles.antdRouteButton}
-                        onClick={handleModalRoute}
-                        icon={<FaPlus />}
-                    >
-                        Crear Ruta
-                    </Button>
-                    <Table columns={columns} dataSource={routesData} />
-                </div>
-
-                <ModalCreate open={modalRoute} onCancel={handleModalRoute} />
+            <div className={styles.containerAdminRoutes}>
+                <Button
+                    className={styles.antdRouteButton}
+                    onClick={handleModalRoute}
+                    icon={<FaPlus />}
+                >
+                    Crear Ruta
+                </Button>
+                <Table columns={columns} dataSource={routesData} />
             </div>
+
+            <ModalCreate open={modalRoute} onCancel={handleModalRoute} />
         </FormProvider>
     )
 }
