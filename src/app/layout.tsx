@@ -1,4 +1,5 @@
 import './globals.css';
+import './globalAntd.css';
 import Loading from './loading';
 import { Suspense } from 'react';
 import type { Metadata } from 'next';
