@@ -1,8 +1,8 @@
 import { FC } from "react"
-import { AdminMapRoutes } from "@/views"
+import { AdminPanel } from "@/views/AdminPanel"
 
 const AdminPage: FC = () => {
-    return <AdminMapRoutes />
+    return <AdminPanel />
 }
 
 export default AdminPage

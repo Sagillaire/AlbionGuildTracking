@@ -3,6 +3,7 @@ export { Button } from './Button';
 export { Loader } from './Loader';
 export { Navbar } from './Navbar';
 export { CardPost } from './CardPost';
+export { Container } from './Container';
 export { CountDown } from './CountDown';
 export { ModalRoute } from './ModalRoute';
 export { CommingSoon } from './CommingSoon';
