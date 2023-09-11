@@ -7,7 +7,7 @@ const createAxiosInstance = (baseURL: string): AxiosInstance => {
     instance.interceptors.response.use(handleResponse, handleError);
 
     instance.interceptors.request.use(config => {
-        config.headers.Authorization = `Bearer ${localStorage.getItem('auth_token')}`
+        config.headers.Authorization = `Bearer ${localStorage.getItem('guildUserToken')}`
         return config
     }, Promise.reject);
 
