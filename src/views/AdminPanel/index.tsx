@@ -2,10 +2,11 @@ import { FC } from 'react';
 import { Tabs } from 'antd';
 import { Container } from '@/components';
 import { AdminMapRoutes } from './AdminMapRoutes';
+import { AdminUsers } from './AdminUsers';
 
 const TABS_CONTENT = [
     { label: `Rutas`, children: <AdminMapRoutes /> },
-    { label: `Usuarios`, children: <h3>Usuarios</h3> },
+    { label: `Usuarios`, children: <AdminUsers /> },
     { label: `Permisos`, children: <h3>Permisos</h3> },
 ]
 
