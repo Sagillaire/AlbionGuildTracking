@@ -1,5 +1,6 @@
 import dayjs from 'dayjs';
 import { Tag } from "antd";
+import moment from 'moment';
 
 export const useRouteTable = () => {
     const columns = [
@@ -19,14 +20,14 @@ export const useRouteTable = () => {
             key: 'createdAt',
             title: 'Fecha creación',
             render: (_: number, row: any) => (
-                <span>{dayjs(row?.createdAt).format('YYYY-MM-DD HH:mm')}</span>
+                <span>{dayjs(moment(row?.createdAt).format('L')).format('YYYY-MM-DD HH:mm')}</span>
             )
         },
         {
             key: 'updatedAt',
             title: 'Fecha Actualización',
             render: (_: number, row: any) => (
-                <span>{dayjs(row?.updatedAt).format('YYYY-MM-DD HH:mm')}</span>
+                <span>{dayjs(moment(row?.updatedAt).format('L')).format('YYYY-MM-DD HH:mm')}</span>
             )
         },
         {
