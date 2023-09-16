@@ -1,16 +1,11 @@
+'use client'
 import { FC } from 'react';
 import { Tabs } from 'antd';
+import { useAdminPanel } from './Hooks';
 import { Container } from '@/components';
-import { AdminMapRoutes } from './AdminMapRoutes';
-import { AdminUsers } from './AdminUsers';
-
-const TABS_CONTENT = [
-    { label: `Rutas`, children: <AdminMapRoutes /> },
-    { label: `Usuarios`, children: <AdminUsers /> },
-    { label: `Permisos`, children: <h3>Permisos</h3> },
-]
 
 export const AdminPanel: FC = () => {
+    const { TABS_CONTENT } = useAdminPanel()
     return (
         <Container>
             <Tabs
