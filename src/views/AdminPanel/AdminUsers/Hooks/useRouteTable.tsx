@@ -1,8 +1,10 @@
 import dayjs from 'dayjs';
-import { Tag } from "antd";
+import { Switch, Tag } from "antd";
+import { AiOutlineCheck, AiOutlineClose } from 'react-icons/ai';
+import { ColumnsType } from 'antd/es/table';
 
 export const useRouteTable = () => {
-    const columns = [
+    const columns: ColumnsType = [
         {
             key: 'username',
             title: 'Usuario',
@@ -34,6 +36,19 @@ export const useRouteTable = () => {
                 <Tag color={row?.status ? 'green' : 'red'}>
                     {row?.status ? 'ACTIVO' : 'INACTIVO'}
                 </Tag>
+            )
+        },
+        {
+            width: 100,
+            key: 'action',
+            align: 'center',
+            title: 'Acción',
+            render: (_: number, row: any) => (
+                <Switch
+                    defaultChecked={row?._id}
+                    checkedChildren={<AiOutlineCheck />}
+                    unCheckedChildren={<AiOutlineClose />}
+                />
             )
         }
     ]
